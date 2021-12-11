@@ -2,7 +2,7 @@
 
 # https://adventofcode.com/2021/day/4
 
-data = open('./input-04.txt').each_line
+data = open('./2021/input-04.txt').each_line
 numbers = data.first.split(',').map(&:to_i)
 grid = data.each_slice(6).map do |l|
   l.drop(1).map{|r| r.split.map(&:to_i)}

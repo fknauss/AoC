@@ -2,7 +2,7 @@
 
 # https://adventofcode.com/2021/day/
 
-data = open('./input-03.txt').each_line
+data = open('./2021/input-03.txt').each_line
 3
 # part 1
 

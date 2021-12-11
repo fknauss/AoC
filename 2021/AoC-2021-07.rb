@@ -2,7 +2,7 @@
 
 # https://adventofcode.com/2021/day/7
 
-data = open('./input-07.txt').readlines(chomp: true).first.split(',').map(&:to_i).sort
+data = open('./2021/input-07.txt').readlines(chomp: true).first.split(',').map(&:to_i).sort
 
 #part 1
 

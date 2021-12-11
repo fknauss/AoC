@@ -2,7 +2,7 @@
 
 #https://adventofcode.com/2021/day/1
 
-data = open('./input-01.txt').each_line.map(&:to_i)
+data = open('./2021/input-01.txt').each_line.map(&:to_i)
 
 # part 1
 

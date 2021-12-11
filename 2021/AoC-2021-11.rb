@@ -3,7 +3,7 @@
 # https://adventofcode.com/2021/day/11
 
 PRODUCTION = true #&& false
-source = PRODUCTION ? open('./input-11.txt') : DATA
+source = PRODUCTION ? open('./2021/input-11.txt') : DATA
 
 levels = source.readlines(chomp:true).map{|l| l.each_char.map(&:to_i)}
 

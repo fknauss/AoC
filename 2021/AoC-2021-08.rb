@@ -11,7 +11,7 @@ class String
   end
 end
 
-data = open('./input-08.txt').each_line.
+data = open('./2021/input-08.txt').each_line.
                               map{|a| a.split('|')}.
                               map{|a,b| [a.split.map(&:order),b.split.map(&:order)]}
 

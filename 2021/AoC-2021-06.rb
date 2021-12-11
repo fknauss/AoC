@@ -2,7 +2,7 @@
 
 # https://adventofcode.com/2021/day/6
 
-data = open('./input-06.txt').readlines(chomp: true).first.split(',').map(&:to_i).tally
+data = open('./2021/input-06.txt').readlines(chomp: true).first.split(',').map(&:to_i).tally
 
 datat = '3,4,3,1,2'.split(',').map(&:to_i).tally
 
