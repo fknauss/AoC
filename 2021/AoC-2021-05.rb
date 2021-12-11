@@ -8,7 +8,7 @@ class Numeric
 end
 
 
-data = open('./2021/input-05.txt').each_line.
+data = open('./input-05.txt').each_line.
     map{|s| s.scan(/\d+/).map(&:to_i).each_slice(2).map{|v| Point[*v]}}
     
 

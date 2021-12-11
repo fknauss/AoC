@@ -3,7 +3,7 @@
 # https://adventofcode.com/2021/day/10
 
 PRODUCTION = true # && false
-source = PRODUCTION ? open('./2021/input-10.txt') : DATA
+source = PRODUCTION ? open('./input-10.txt') : DATA
 
 CLOSE = {'<' => '>', '(' => ')', '[' =>']', '{' =>'}' }
 

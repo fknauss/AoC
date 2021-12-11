@@ -2,8 +2,11 @@
 
 #https://adventofcode.com/2020/day/1
 
+#Dir.chdir(ENV["TM_DIRECTORY"]) if ENV["TM_DIRECTORY"]
+
+
 PRODUCTION = true #&& false
-source = PRODUCTION ? open('./2020/input-01.txt') : DATA
+source = PRODUCTION ? open('./input-01.txt') : DATA
 
 data = source.readlines(chomp:true).map(&:to_i)
 

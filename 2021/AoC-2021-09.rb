@@ -3,7 +3,7 @@
 # https://adventofcode.com/2021/day/9
 
 
-data = open('./2021/input-09.txt').readlines(chomp:true).map{|v| v.each_char.map(&:to_i).to_a}.to_a
+data = open('./input-09.txt').readlines(chomp:true).map{|v| v.each_char.map(&:to_i).to_a}.to_a
 #data = DATA.readlines(chomp:true).map{|v| v.each_char.map(&:to_i).to_a}.to_a
 
 require "./point"

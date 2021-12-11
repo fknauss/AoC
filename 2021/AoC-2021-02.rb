@@ -2,7 +2,7 @@
 
 # https://adventofcode.com/2021/day/2
 
-data = open('./2021/input-02.txt').each_line.map{|s| a=s.split; [a[0],a[1].to_i]}
+data = open('./input-02.txt').each_line.map{|s| a=s.split; [a[0],a[1].to_i]}
 data.map!{|a,b| a=='up'?['down',-b]:[a,b]}
 
 # part 1
