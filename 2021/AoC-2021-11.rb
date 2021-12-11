@@ -52,9 +52,12 @@ class Oct
   
 end
 
+# part 1
 oct = Oct.new(levels)
 100.times {oct.day}
 p oct.flashes
+
+#part 2
 oct.day until oct.done? 
 p oct.days
   
