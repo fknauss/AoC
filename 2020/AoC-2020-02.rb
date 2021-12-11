@@ -3,7 +3,7 @@
 #https://adventofcode.com/2020/day/2
 
 PRODUCTION = true #&& false
-source = PRODUCTION ? open('./2020/input-02.txt') : DATA
+source = PRODUCTION ? open('./input-02.txt') : DATA
 
 data = source.readlines(chomp:true).map{|l|l.scan(/(\d+)-(\d+)\s*(\w):\s*(\w+)/).first}
 
