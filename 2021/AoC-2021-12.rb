@@ -4,7 +4,7 @@
 
 class String
   def small?
-    (self =~ /^[A-Z]*$/).nil?
+    (self =~ /^\p{Upper}/).nil?
   end
 end
 
