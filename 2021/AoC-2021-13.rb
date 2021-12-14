@@ -33,7 +33,7 @@ fp = instructions.inject(points){|pl,i| pl.map{|pt| fold(pt,i)}}
 width = instructions.filter{|x| x[0]=='x'}.map{|x| x[1]}.min
 height = instructions.filter{|x| x[0]=='y'}.map{|x| x[1]}.min
 code = height.times.map do |y|
-  width.times.map{|x| fp.include?(Point[x,y]) ? "@" : " "}.join
+  width.times.map{|x| fp.include?(Point[x,y]) ? "#" : " "}.join
 end
 puts code
 
