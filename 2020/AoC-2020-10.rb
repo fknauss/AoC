@@ -12,7 +12,15 @@ data << 0 << (data.max+3)
 diffs = data.sort.each_cons(2).map{|v| v[1]-v[0]}
 p diffs.count(3)* diffs.count(1)
 
+# part 2
+def fib3(x)
+  a = b = 1
+  c = 0
+  (x-1).times{a,b,c = a+b+c,a,b}
+  a
+end
 
+p diffs.slice_when{|a,b| a!=b}.map{|a| a.first == 3 ? 1 :fib3(a.length)}.inject(1,&:*)
 
 __END__
 28
