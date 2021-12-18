@@ -3,7 +3,7 @@
 # https://adventofcode.com/2021/day/15
 
 require '../point'
-require 'set'
+require '../priority_queue'
 
 PRODUCTION = true #&& false
 source = PRODUCTION ? open('./input-15.txt') : DATA
@@ -11,34 +11,41 @@ source = PRODUCTION ? open('./input-15.txt') : DATA
 data=source.readlines(chomp:true).map{|s| s.each_char.map(&:to_i)}
 
 class Pathfind
-  def initialize(mp)
+  def initialize(mp, factor=1)
     @mp = mp
-    @bound = Point[mp.first.length,mp.length]
-    Point::bound(@bound)
-    @edges = {Point.new(0,0) => 0}
-    @done = Set[]
+    @ib = Point[mp.first.length,mp.length]
+    @factor = factor
+    @bound = Point[@ib.x*@factor-1,@ib.y*@factor-1]
+    Point::bound(@bound+Point[1,1])
+    @cost = {Point[0,0] => 0}
+    @cand = PriorityQueue.new([Point[0,0]]){|a,b| @cost[a] < @cost[b]}
   end
+    
   def val(pt)
-    @mp[pt.y][pt.x]
+    xfac = pt.x / @ib.x
+    xmod = pt.x % @ib.x
+    yfac = pt.y / @ib.y
+    ymod = pt.y % @ib.y
+    v = @mp[ymod][xmod]
+    (v-1+xfac+yfac) % 9 +1
   end
 
   def process
-    until @edges.each_key.include?(@bound+Point[-1,-1])
-      nxt = @edges.each_key.reject{|s| @done.include?(s)}.min_by{|pt|@edges[pt]}
+    while nxt = @cand.pop
       #puts  @done.length.to_s + " - " + nxt.to_s
-      nxt.vn4.reject{|x| @edges.each_key.include?(x)}.each do |x|
-        @edges[x]=@edges[nxt]+val(x)
+      nxt.vn4.reject{|x| @cost.has_key?(x)}.each do |x|
+        @cost[x]=@cost[nxt]+val(x)
+        @cand << x
+        return @cost[x] if (x==@bound)
       end
-      @done << nxt
-    #  p @done
     end
-    @edges[@bound+Point[-1,-1]]
+    p @cost
   end
 
   def dump
-    a = [@bound+Point[-1,-1]]
+    a = [@bound1]
     while a.first != Point[0,0]
-      a.unshift(a.first.vn4.min_by{|x| @edges[x]})
+      a.unshift(a.first.vn4.min_by{|x| @cost[x]})
     end
     a
   end
@@ -46,9 +53,11 @@ end
 
 pf = Pathfind.new(data)
 puts pf.process
-a = pf.dump
-puts a.length
-puts a
+
+#part 2
+pf = Pathfind.new(data,5)
+puts pf.process
+
 
 __END__
 1163751742
