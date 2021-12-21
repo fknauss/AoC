@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-# https://adventofcode.com/2021/day/2p
+# https://adventofcode.com/2021/day/20
 
 
 PRODUCTION = true# && false
