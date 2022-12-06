@@ -10,10 +10,10 @@ data = source.readlines(chomp: true).
       map{[_1.._2,_3.._4]}
 
 # part 1
-p data.map{|(a,b)| a.cover?(b)||b.cover?(a) }.count(true)
+p data.select{|(a,b)| a.cover?(b)||b.cover?(a) }.size
 
 # part 2
-p data.map{|(a,b)|a.max>=b.min && b.max>=a.min}.count(true)
+p data.select{|(a,b)|a.max>=b.min && b.max>=a.min}.size
 
 __END__
 2-4,6-8
