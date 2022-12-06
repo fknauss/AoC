@@ -1,12 +1,9 @@
 #!/usr/bin/env ruby
 
-lstr = %w(xyz yzx zxy).map(&:each_char).
-                       map(&:to_a).
-                       product(["","-"].repeated_permutation(3).to_a).
-                       map do |v,s|
-  (s.count("-").even? ? v : v.reverse).zip(s).map{|(v,s)| s+v}.join(" , ")
-end
+var= 3.times.map{|i|"xyz".split("").rotate(i)}
+pm = ["","-"].repeated_permutation(3).to_a
+xform = pm.product(var).map do |s,v|
+  s.zip(s.count("").even? ? v.reverse : v).map(&:join).join(", ")
+end.map{|s| eval("->(x,y,z){[#{s}]}")}
 
-
-xform = lstr.map{|s| eval("lambda  {|x,y,z| [#{s}]}")}
 p xform.map{|pr| pr.(1,2,3)}
