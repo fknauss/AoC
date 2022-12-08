@@ -5,18 +5,18 @@
 PRODUCTION = true #&& false
 source = PRODUCTION ? open('AoC-2022-06.txt') : DATA
 #fetch and format
-data = source.readlines(chomp: true)[0].chars
+data = source.readline(chomp: true).chars
 
 #prep
-def fp(data,l)
-  data.each_cons(l).with_index.find{|(a,b)|a.uniq.size == l}[1]+l
+def data.ucl(n)
+  self.each_cons(n).with_index.find{|(a,_)|a.uniq.size == n}[1]+n
 end
 
 #part 1
-p fp(data,4)
+p data.ucl(4)
 
 #part 2
-p fp(data,14)
+p data.ucl(14)
 
 __END__
 mjqjpqmgbljsphdztnvjfqwrcgsmlb
