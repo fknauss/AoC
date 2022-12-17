@@ -1,2 +1,4 @@
 #apple stuff
 .DS_S*
+#testing output
+*.out
